@@ -17,3 +17,5 @@ Makefile.in
 /missing
 /stamp-h1
 /node_modules
+/temp
+/static
