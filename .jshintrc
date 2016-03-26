@@ -1,0 +1,29 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "latedef": "nofunc",
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "unused": true,
+  "boss": true,
+  "eqnull": true,
+  "evil": true,
+  "loopfunc": true,
+  "browser": true,
+  "devel": true,
+  "expr": true,
+  "quotmark": "single",
+  "maxcomplexity": 7,
+  "maxstatements": 20,
+  "globals": {
+    "Modernizr": true,
+    "jQuery": true,
+    "L10n": true,
+    "Site": true,
+    "minSmallScreen":true,
+    "fakewaffle":true,
+    "angular":true
+  }
+}

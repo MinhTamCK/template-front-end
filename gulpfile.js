@@ -10,7 +10,7 @@ gulp.task('default', ['watch']);
 gulp.task('watch', function() {
     gulp.watch('./src/**/*.html', ['htmlhint']);
     gulp.watch('./src/css/**/*.scss', ['build-css']);
-    gulp.watch('./static/css/style.css', ['csslint']); // Recommend watch each file
+    gulp.watch('./static/css/**/*.css', ['csslint']); // Recommend watch each file
     gulp.watch('./src/js/**/*js', ['jshint']);
 });
 
@@ -18,7 +18,7 @@ gulp.task('watch', function() {
 /* html validation task */
 gulp.task('htmlhint', function() {
     return gulp.src('./src/html/*.html')
-        .pipe(htmlhint())
+        .pipe(htmlhint('.htmlhintrc'))
         .pipe(htmlhint.reporter('htmlhint-stylish'));
 });
 /* build css task */
@@ -30,12 +30,12 @@ gulp.task('build-css', function() {
 /* css validation task */
 gulp.task('csslint', function() {
     return gulp.src('./static/css/style.css')
-        .pipe(csslint())
+        .pipe(csslint('.csslintrc'))
         .pipe(csslint.reporter());
 });
 /* js validation task */
 gulp.task('jshint', function() {
     return gulp.src('./src/js/**/*js')
-        .pipe(jshint())
+        .pipe(jshint('.jshintrc'))
         .pipe(csslint.reporter());
 });
