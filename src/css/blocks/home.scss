@@ -1,18 +1,27 @@
+@import "../variable";
 $font-stack: 100% Nunito-Bold;
 body {
     font: $font-stack;
 }
 
+h1 {
+    font-size: 5.5em;
+}
+
 h2 {
-    font-size: 3.5em;
+    font-size: 4.5em;
     text-transform: capitalize;
     color: #393b3a;
 }
 
 h3 {
-    font-size: 2.5em;
+    font-size: 3.5em;
     text-transform: capitalize;
     color: #393b3a;
+}
+
+h4 {
+    font-size: 2.5em;
 }
 
 .navbar {
@@ -25,14 +34,15 @@ h3 {
 
 .stu-trianglify canvas {
     width: 100%;
+    height: 100%;
 }
 
-.slider-block {
+.slide-block {
     position: absolute;
     top: 0;
     width: 100%;
     .particles-js-canvas-el {
-        max-height: rem-calc(500px);
+        max-height: 500px;
     }
 }
 
@@ -46,7 +56,7 @@ h3 {
 
 .stu-contact-form {
     font-size: 1.5em;
-    background-image: url(../image/contact-backgroup.png);
+    background-image: url(./image/contact-backgroup.png);
     padding: 3rem 1.5rem;
     .form-group {
         margin-bottom: rem-calc(45px);
@@ -56,7 +66,7 @@ h3 {
         font-size: 1.5em;
     }
     input {
-        height: rem-calc(50px);
+        height: 6rem;
     }
     .btn-submit-width {
         width: 50%;
@@ -79,7 +89,6 @@ h3 {
     padding-top: 5%;
     text-align: center;
     h2 {
-
         font-size: 5em;
         text-transform: capitalize;
         color: #393b3a;
@@ -144,18 +153,27 @@ h3 {
 }
 
 .study {
-    p {
-        font-size: 1.3em;
-        color: #393b3a;
-        padding: 1.1em 0 0 0;
+    .image-school {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        img {
+            width: 75%;
+        }
+    }
+    .infomation-study {
+        padding-top: 4rem;
+        p {
+            font-size: 2em;
+        }
     }
 }
 
 .skill-block {
     width: 100%;
-    height: rem-calc(50px);
+    height: 62px;    
     .progress-bar {
-        height: rem-calc(15px);
+        height: 30%;
         border-radius: rem-calc(6px)
     }
 }
@@ -188,6 +206,29 @@ h3 {
     }
 }
 
+.loading {
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    background-color: #f9f9f9;
+    .modal-dialog {
+        width: 50%;
+        height: 50%;
+        margin: 0 auto;
+        padding-bottom: 10rem;
+        text-align: center;
+        .fa-spin {
+            font-size: 15em;
+        }
+    }
+}
 
 
 /* Let's get this party started */
@@ -217,4 +258,18 @@ h3 {
 
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(255, 0, 0, 0.4);
+}
+
+// @media #{$screen-sm-up} {
+//     h1 {
+//         font-size: 2.5em;
+//     }
+//     p {
+//         font-size: 1.5em;
+//     }
+// }
+@media #{$screen-sm-only} {
+    .stu-font-social {
+        text-align: center;
+    }
 }

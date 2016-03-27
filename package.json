@@ -9,6 +9,9 @@
     "htmlhint-stylish": "^1.0.3"
   },
   "devDependencies": {
+    "gulp-cache": "^0.4.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
     "gulp-csslint": "^0.2.2",
     "gulp-jshint": "^2.0.0",
     "gulp-sass": "^2.2.0",
