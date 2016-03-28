@@ -3,13 +3,15 @@ var htmlhint = require('gulp-htmlhint');
 var sass = require('gulp-sass');
 var csslint = require('gulp-csslint');
 var jshint = require('gulp-jshint');
-// var concatCss = require('gulp-concat-css');
 var concat = require('gulp-concat');
 var minify = require('gulp-minifier');
 var cache = require('gulp-cache');
+var nodemon = require('gulp-nodemon');
+var notify = require('gulp-notify');
+var livereload = require('gulp-livereload');
 
 
-gulp.task('default', ['clearCache','watch']);
+gulp.task('default', ['clearCache', 'watch'], server());
 
 // task watch
 gulp.task('watch', function() {
@@ -45,9 +47,11 @@ gulp.task('jshint', function() {
 });
 /* concat css  task */
 gulp.task('concatCss', function() {
-    return gulp.src(['./static/css/libs.css','./static/css/style.css'])
+    return gulp.src(['./static/css/libs.css', './static/css/style.css'])
         .pipe(concat("./css/bundle.css"))
-        .pipe(gulp.dest('out/'));
+        .pipe(gulp.dest('out/'))
+        .pipe(livereload())
+        .pipe(notify('Reloading page, please wait...'));
 });
 /* copy html task */
 gulp.task('copyHtml', function() {
@@ -58,7 +62,9 @@ gulp.task('copyHtml', function() {
 gulp.task('copyjavascript', function() {
     return gulp.src(['./src/js/lib/*.js', './src/js/plugin/*.js', './src/js/app.js'])
         .pipe(concat('./js/all.js'))
-        .pipe(gulp.dest('out/'));
+        .pipe(gulp.dest('out/'))
+        .pipe(livereload())
+        .pipe(notify('Reloading page, please wait...'));
 });
 /* minify js/css task */
 gulp.task('minify', function() {
@@ -80,3 +86,14 @@ gulp.task('minify', function() {
 gulp.task('clearCache', function() {
     return cache.clearAll();
 });
+/* server task */
+function server() {
+    // listen for changes
+    livereload.listen();
+    // configure nodemon
+    nodemon({
+        // the script to run the app
+        script: 'server.js',
+        ext: 'js'
+    });
+};
