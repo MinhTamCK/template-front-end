@@ -9,15 +9,18 @@ var cache = require('gulp-cache');
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
+var connect = require('gulp-connect');
+var watch = require('gulp-watch');
 
 
-gulp.task('default', ['clearCache', 'watch'], server());
+gulp.task('default', ['clearCache', 'webserver', 'watch']);
 
 // task watch
 gulp.task('watch', function() {
     gulp.watch('./src/**/*.html', ['htmlhint', 'copyHtml']);
     gulp.watch('./src/css/**/*.scss', ['build-css', 'csslint', 'concatCss']);
     gulp.watch('./src/js/**/*js', ['jshint', 'copyjavascript']);
+
 });
 
 
@@ -45,26 +48,28 @@ gulp.task('jshint', function() {
         .pipe(jshint('.jshintrc'))
         .pipe(csslint.reporter());
 });
-/* concat css  task */
+/* concat css task */
 gulp.task('concatCss', function() {
     return gulp.src(['./static/css/libs.css', './static/css/style.css'])
         .pipe(concat("./css/bundle.css"))
         .pipe(gulp.dest('out/'))
-        .pipe(livereload())
-        .pipe(notify('Reloading page, please wait...'));
+        .pipe(connect.reload())
+        .pipe(notify("reload page"));
 });
 /* copy html task */
 gulp.task('copyHtml', function() {
     return gulp.src('./src/html/*.html')
-        .pipe(gulp.dest('out/html/'));
+        .pipe(gulp.dest('out/html/'))
+        .pipe(connect.reload())
+        .pipe(notify("reload page"));
 });
 /* copy js task */
 gulp.task('copyjavascript', function() {
     return gulp.src(['./src/js/lib/*.js', './src/js/plugin/*.js', './src/js/app.js'])
         .pipe(concat('./js/all.js'))
         .pipe(gulp.dest('out/'))
-        .pipe(livereload())
-        .pipe(notify('Reloading page, please wait...'));
+        .pipe(connect.reload())
+        .pipe(notify("reload page"));
 });
 /* minify js/css task */
 gulp.task('minify', function() {
@@ -86,14 +91,17 @@ gulp.task('minify', function() {
 gulp.task('clearCache', function() {
     return cache.clearAll();
 });
-/* server task */
-function server() {
-    // listen for changes
-    livereload.listen();
-    // configure nodemon
-    nodemon({
-        // the script to run the app
-        script: 'server.js',
-        ext: 'js'
+/* create server task */
+gulp.task('webserver', function() {
+    connect.server({
+        livereload: true,
+        root: ['.', '.out']
     });
-};
+});
+/* livereload task */
+// gulp.task('livereload', function() {
+//     gulp.src(['.out/css/*.css', '.out/js/*.js', '.out/html/*.html'])
+//         .pipe(watch())
+//         .pipe(connect.reload())
+//         .pipe(notify("reload page"));
+// });
