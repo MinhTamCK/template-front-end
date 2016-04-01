@@ -24,8 +24,9 @@ h4 {
     font-size: 2.5em;
 }
 
-p {
-    font-size: 2em;
+p,
+li {
+    font-size: 1.7em;
 }
 
 .navbar {
@@ -56,11 +57,11 @@ p {
 
 .contact {
     position: relative;
+    background-image: url(../image/contact-backgroup.png);
 }
 
 .stu-contact-form {
     font-size: 1.5em;
-    background-image: url(./image/contact-backgroup.png);
     padding: 3rem 1.5rem;
     .form-group {
         margin-bottom: rem-calc(45px);
@@ -106,21 +107,32 @@ p {
     }
 }
 
-.stu-font-social {
+.stu-social {
     .fa {
         font-size: 7em;
     }
-    .stu-font-face:hover {
-        color: #3a5795;
-    }
-    .stu-font-google:hover {
-        color: #db4437;
-    }
-    .stu-font-twitter:hover {
-        color: #1da1f2;
-    }
-    .stu-font-linked:hover {
-        color: #1a85bc;
+    a {
+        color: #333333;
+        text-decoration: none;
+        display: block;
+        &:hover {
+            .fa-facebook,
+            .facebook-text {
+                color: #3a5795;
+            }
+            .fa-google-plus,
+            .google-text {
+                color: #db4437;
+            }
+            .fa-twitter,
+            .twitter-text {
+                color: #1da1f2;
+            }
+            .fa-linkedin,
+            .linked-text {
+                color: #1a85bc;
+            }
+        }
     }
 }
 
@@ -167,7 +179,7 @@ p {
     }
     .infomation-study {
         padding-top: 4rem;
-        p {
+        li {
             font-size: 2em;
         }
     }
@@ -204,6 +216,22 @@ p {
     }
 }
 
+.experience-content {
+    ul {
+        list-style-type: none;
+        li {
+            list-style-type: none;
+            &::before {
+                float: left;
+                margin-left: -25px;
+                font-family: 'Glyphicons Halflings';
+                color: #6fb72b;
+                content: "\e089";
+            }
+        }
+    }
+}
+
 .loading {
     display: block;
     overflow: hidden;
@@ -220,7 +248,7 @@ p {
         width: 50%;
         height: 50%;
         margin: 0 auto;
-        padding-bottom: 10rem;
+        padding-top: 10rem;
         text-align: center;
         .fa-spin {
             font-size: 15em;
@@ -258,27 +286,10 @@ p {
     background: rgba(255, 0, 0, 0.4);
 }
 
-// @media #{$screen-sm-up} {
-//     h1 {
-//         font-size: 2.5em;
-//     }
-//     p {
-//         font-size: 1.5em;
-//     }
-// }
-@media #{$screen-sm-only} {
-    .stu-font-social {
-        text-align: center;
-    }
-}
-
 .slick-prev {
     left: 10px;
 }
 
 .slick-next {
     right: 15px;
-}
-.slick-center{
-    opacity: 1;
 }

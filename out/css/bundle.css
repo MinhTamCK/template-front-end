@@ -6041,8 +6041,9 @@ h3 {
 h4 {
   font-size: 2.5em; }
 
-p {
-  font-size: 2em; }
+p,
+li {
+  font-size: 1.7em; }
 
 .navbar {
   margin-bottom: 0; }
@@ -6065,11 +6066,11 @@ p {
   width: 100%; }
 
 .contact {
-  position: relative; }
+  position: relative;
+  background-image: url(../image/contact-backgroup.png); }
 
 .stu-contact-form {
   font-size: 1.5em;
-  background-image: url(./image/contact-backgroup.png);
   padding: 3rem 1.5rem; }
   .stu-contact-form .form-group {
     margin-bottom: 2.8125rem; }
@@ -6104,20 +6105,25 @@ p {
     color: #393b3a;
     font-size: 2em; }
 
-.stu-font-social .fa {
+.stu-social .fa {
   font-size: 7em; }
 
-.stu-font-social .stu-font-face:hover {
-  color: #3a5795; }
-
-.stu-font-social .stu-font-google:hover {
-  color: #db4437; }
-
-.stu-font-social .stu-font-twitter:hover {
-  color: #1da1f2; }
-
-.stu-font-social .stu-font-linked:hover {
-  color: #1a85bc; }
+.stu-social a {
+  color: #333333;
+  text-decoration: none;
+  display: block; }
+  .stu-social a:hover .fa-facebook,
+  .stu-social a:hover .facebook-text {
+    color: #3a5795; }
+  .stu-social a:hover .fa-google-plus,
+  .stu-social a:hover .google-text {
+    color: #db4437; }
+  .stu-social a:hover .fa-twitter,
+  .stu-social a:hover .twitter-text {
+    color: #1da1f2; }
+  .stu-social a:hover .fa-linkedin,
+  .stu-social a:hover .linked-text {
+    color: #1a85bc; }
 
 .title-center {
   width: 50%;
@@ -6155,7 +6161,7 @@ p {
 
 .study .infomation-study {
   padding-top: 4rem; }
-  .study .infomation-study p {
+  .study .infomation-study li {
     font-size: 2em; }
 
 .skill-block {
@@ -6182,6 +6188,17 @@ p {
     .technologies-image img:hover {
       opacity: 1; }
 
+.experience-content ul {
+  list-style-type: none; }
+  .experience-content ul li {
+    list-style-type: none; }
+    .experience-content ul li::before {
+      float: left;
+      margin-left: -25px;
+      font-family: 'Glyphicons Halflings';
+      color: #6fb72b;
+      content: "\e089"; }
+
 .loading {
   display: block;
   overflow: hidden;
@@ -6198,7 +6215,7 @@ p {
     width: 50%;
     height: 50%;
     margin: 0 auto;
-    padding-bottom: 10rem;
+    padding-top: 10rem;
     text-align: center; }
     .loading .modal-dialog .fa-spin {
       font-size: 15em; }
@@ -6223,15 +6240,8 @@ p {
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(255, 0, 0, 0.4); }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .stu-font-social {
-    text-align: center; } }
-
 .slick-prev {
   left: 10px; }
 
 .slick-next {
   right: 15px; }
-
-.slick-center {
-  opacity: 1; }
