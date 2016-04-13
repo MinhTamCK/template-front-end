@@ -163,9 +163,17 @@ li {
     display: block;
 }
 
-.study,
-.skill {
+.study {
     margin-top: 5%;
+}
+.skill {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    #my-skills{
+        position: absolute;
+        bottom: 5rem;
+    }
 }
 
 .study {
@@ -232,6 +240,27 @@ li {
     }
 }
 
+.footer {
+    background: #272727;
+    padding: 50px 0;
+    color: #6d6e70;
+    font-weight: 300;
+    a {
+        color: #6d6e70;
+        &:hover,
+        &:focus {
+            color: #eeeeee;
+            background-color: initial !important;
+        }
+    }
+    p {
+        padding-top: rem-calc(16px);
+    }
+    .right-direction {
+        float: right;
+    }
+}
+
 .loading {
     display: block;
     overflow: hidden;
@@ -292,4 +321,54 @@ li {
 
 .slick-next {
     right: 15px;
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+    // h1 {
+    //     font-size: 4.5em;
+    // }
+    // h2 {
+    //     font-size: 3.5em;
+    // }
+    h3 {
+        text-align: center;
+    }
+    // h4 {
+    //     font-size: 2em;
+    // }
+    .footer {
+        text-align: center;
+        .right-direction {
+            float: none;
+            width: 32%;
+            margin: 0 auto;
+        }
+        .navbar-nav {
+            float: none;
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-sm) {
+    // h1 {
+    //     font-size: 4.5em;
+    // }
+    // h2 {
+    //     font-size: 3.5em;
+    // }
+    h3 {
+        text-align: center;
+    }
+    // h4 {
+    //     font-size: 2em;
+    // }
+    .navbar-fixed-top {
+        position: initial;
+    }
+    .footer {
+        text-align: center;
+        .right-direction {
+            float: none;
+        }
+    }
 }
