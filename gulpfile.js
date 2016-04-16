@@ -11,9 +11,11 @@ var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
 var connect = require('gulp-connect');
 var watch = require('gulp-watch');
+var imageop = require('gulp-image-optimization');
 
 
 gulp.task('default', ['clearCache', 'webserver', 'watch']);
+gulp.task('release', ['clearCache', 'minify', 'images']);
 
 // task watch
 gulp.task('watch', function() {
@@ -97,6 +99,15 @@ gulp.task('webserver', function() {
         livereload: true,
         root: ['.', '.out']
     });
+});
+
+/* Optimization images task */
+gulp.task('images', function(cb) {
+    gulp.src(['./src/image/**/*.png','./src/image/**/*.jpg','./src/image/**/*.gif','./src/image/**/*.jpeg']).pipe(imageop({
+        optimizationLevel: 3,
+        progressive: true,
+        interlaced: true
+    })).pipe(gulp.dest('./out/image')).on('end', cb).on('error', cb);
 });
 /* livereload task */
 // gulp.task('livereload', function() {

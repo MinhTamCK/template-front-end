@@ -73,12 +73,13 @@ li {
     input {
         height: 6rem;
     }
-    .btn-submit-width {
-        width: 50%;
-        margin: 0 auto;
-        input {
-            line-height: 0.1em;
-        }
+}
+
+.btn-submit-width {
+    width: 50%;
+    margin: 0 auto;
+    input {
+        font-size: 3em;
     }
 }
 
@@ -103,7 +104,7 @@ li {
     }
     p {
         color: #393b3a;
-        font-size: 2em;
+        font-size: 3em;
     }
 }
 
@@ -166,11 +167,12 @@ li {
 .study {
     margin-top: 5%;
 }
+
 .skill {
     position: relative;
     width: 100%;
     height: 500px;
-    #my-skills{
+    #my-skills {
         position: absolute;
         bottom: 5rem;
     }
@@ -229,6 +231,7 @@ li {
         list-style-type: none;
         li {
             list-style-type: none;
+            padding-bottom: 1rem;
             &::before {
                 float: left;
                 margin-left: -25px;
@@ -322,6 +325,37 @@ li {
 .slick-next {
     right: 15px;
 }
+
+
+/* Card */
+
+.card {
+    position: relative;
+    display: block;
+    margin-bottom: .75rem;
+    padding: rem-calc(12px) 0;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: .25rem;
+    .card-block {
+        padding: 1.25rem;
+        .card-text {
+            margin-top: 2rem;
+            li {
+                padding-bottom: 1rem;
+            }
+        }
+    }
+    .card-title {
+        margin-bottom: .75rem;
+    }
+    .fa {
+        font-size: 7em;
+    }
+}
+
+
+/* Mobile Screen */
 
 @media (min-width: $screen-sm) and (max-width: $screen-md) {
     // h1 {

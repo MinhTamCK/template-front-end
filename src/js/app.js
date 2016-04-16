@@ -125,7 +125,7 @@ $(document).ready(function() {
         speed: 300,
         infinite: true,
         autoplaySpeed: 2000,
-        autoplay: true,
+        autoplay: false,
         responsive: [{
                 breakpoint: 720,
                 settings: {
